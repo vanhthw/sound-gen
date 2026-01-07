@@ -1,0 +1,40 @@
+my-chill-web/
+├── public/
+│   ├── sounds/           # Chứa file mp3 (rain.mp3, birds.mp3,...)
+│   └── videos/           # Chứa video nền (cafe.mp4, forest.mp4,...)
+├── src/
+│   ├── components/
+│   │   ├── Background.jsx  # Xử lý hiển thị video nền
+│   │   ├── Timer.jsx       # Bộ đếm ngược Pomodoro/Chill
+│   │   ├── Mixer.jsx       # Khung chứa danh sách các SoundControl
+│   │   └── SoundControl.jsx # Từng thanh trượt âm thanh riêng lẻ
+│   ├── data/
+│   │   └── assets.js       # File cấu hình danh sách âm thanh/video
+│   ├── App.jsx             # File chính kết nối mọi thứ
+│   └── index.css           # Tailwind config
+└── package.json
+
+
+Lỗi này ("Playback paused because your account is being 
+used in another location") xảy ra khi YouTube phát hiện 
+bạn đang cùng lúc nghe nhạc/xem video trên nhiều thiết bị 
+hoặc tab trình duyệt khác nhau với cùng một tài khoản Google 
+được đăng nhập.
+
+Vì bạn đang nhúng iframe YouTube vào web app và trình duyệt của 
+bạn đang đăng nhập Google, YouTube tính đó là một "luồng" 
+(stream) đang chạy. Nếu bạn mở một tab khác để nghe nhạc, 
+nó sẽ chặn một trong hai.
+
+Mình đã xử lý vấn đề này giúp bạn bằng cách chuyển sang chế độ 
+Privacy Enhanced Mode (youtube-nocookie.com).
+
+Tại sao cách này hiệu quả?
+Khi dùng tên miền youtube-nocookie.com, YouTube sẽ không sử dụng 
+cookie theo dõi phiên đăng nhập của bạn cho video nhúng đó. 
+Điều này giúp:
+
+Tránh xung đột tài khoản: Nó coi như video đang được xem bởi 
+một người dùng ẩn danh, không tính vào giới hạn thiết bị của 
+tài khoản bạn.
+Cleaner: Không hiển thị video gợi ý dựa trên lịch sử xem của bạn.

@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+    --animate-fade-in-up: fade-in-up 1s ease-out forwards;
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent scrolling if video scales up */
+    background-color: #111;
+    color: white;
+}
+
+/* Custom Scrollbar for Mixer */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+
+.renderer-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.emoji-font {
+    font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
