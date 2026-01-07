@@ -3,6 +3,7 @@ import Background from './components/Background';
 import Timer from './components/Timer';
 import Mixer from './components/Mixer';
 import { BACKGROUNDS } from './data/assets';
+import { Palette } from 'lucide-react';
 
 function App() {
   const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
@@ -18,9 +19,9 @@ function App() {
       <Background youtubeId={BACKGROUNDS[currentBackgroundIndex].youtubeId} />
 
       {/* Main Content (Timer) */}
-      {/* <main className="z-10 relative flex flex-col items-center gap-8 animate-fade-in-up">
+      <main className="z-10 relative flex flex-col items-center gap-8 animate-fade-in-up">
         <Timer />
-      </main> */}
+      </main>
 
       {/* Mixer (Bottom Left) */}
       <Mixer />
@@ -32,7 +33,9 @@ function App() {
           className="flex items-center gap-2 px-4 py-3 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white font-medium shadow-lg hover:bg-black/60 transition-all hover:scale-105 active:scale-95"
         >
           <span>Theme</span>
-          <span className="text-xl">🎨</span>
+          <span className="text-xl">
+            <Palette />
+          </span>
         </button>
       </div>
 

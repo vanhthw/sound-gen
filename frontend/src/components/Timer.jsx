@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Pause, Play, RotateCcw } from 'lucide-react';
 
 const Timer = () => {
     const [minutes, setMinutes] = useState(25);
@@ -65,8 +66,8 @@ const Timer = () => {
                         key={m.id}
                         onClick={() => switchMode(m.id)}
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${mode === m.id
-                                ? 'bg-white text-gray-900 shadow-lg scale-105'
-                                : 'text-white/70 hover:text-white hover:bg-white/10'
+                            ? 'bg-white text-gray-900 shadow-lg scale-105'
+                            : 'text-white/70 hover:text-white hover:bg-white/10'
                             }`}
                     >
                         {m.label}
@@ -83,13 +84,13 @@ const Timer = () => {
                     onClick={toggleTimer}
                     className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-gray-900 text-2xl shadow-lg hover:scale-110 active:scale-95 transition-all duration-300"
                 >
-                    {isActive ? '⏸' : '▶'}
+                    {isActive ? <Pause /> : <Play />}
                 </button>
                 <button
                     onClick={resetTimer}
                     className="w-16 h-16 flex items-center justify-center rounded-full bg-white/20 text-white text-2xl backdrop-blur-sm hover:bg-white/30 hover:scale-110 active:scale-95 transition-all duration-300"
                 >
-                    ↺
+                    <RotateCcw />
                 </button>
             </div>
         </div>
